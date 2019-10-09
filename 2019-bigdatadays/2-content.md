@@ -2,7 +2,6 @@
 ## Tarantool =
 
 .center[
-<br/>
 ![:scale 810px](images/1-database+appserver.svg)
 ]
 
@@ -22,29 +21,32 @@ Application server (Lua)
 
 * Вопрос залу - Кто работал? Кто слышал название?
 * Тарантул - это ...
+* Применяется он в самых разных сценариях:
+  как бд кеши, очереди, сессии; и как аппсервер
 
 <!-- ############################################################ -->
 ---
 
 ## Core team
 
-* `20` C developers
+* 20 C developers
 * Product development
 
 ## Solution team
-* `35` Lua developers
+* 35 Lua developers
 * Commertial projects
 
 ???
 
-* Большая команда - 70 человек
+* Коллекив 70 человек
+* Преимущественно программисты
 * Условно две половинки
 * Команда ядра развивает опенсорс платформу
 * Команда решений делает коммерческие проекты
 
 --
 
-## Common goals
+### Common goals
 
 * Make development **fast** and **reliable**
 
@@ -88,31 +90,40 @@ Application server (Lua)
 .override[![](images/vshard-p1.png)]
 ???
 - Вшард - опенсорс модуль, который делает БД распределённой
-- Вшард группирует записи по виртуальным бакетам (отсюда название)
+- Вшард группирует записи ... (отсюда название)
 - Бакетов много, вшард организует маршрутизацию
 - И помогает в балансировке
+- Вот здесь на схеме 2 стораджа
 
-Объяснение картинки
+<!-- ############################# -->
 --
 .override[![](images/vshard-p2.png)]
 ???
-Что делать, когда стало тесно?
+- Стало тесно
+
+<!-- ############################# -->
 --
 .override[![](images/vshard-p3.png)]
 ???
-Сначала нужно обновить конфиг
+- Сначала нужно обновить конфиг
+
+<!-- ############################# -->
 --
 .override[![](images/vshard-p4.png)]
 ???
-Стартануть новый инстанс
+- Стартануть новый инстанс. Но старые пока не знают
+
+<!-- ############################# -->
 --
 .override[![](images/vshard-p5.png)]
 ???
-И применить этот конфиг к старым инстансам
+- И применить этот конфиг к старым инстансам
+
+<!-- ############################# -->
 --
 .override[![](images/vshard-p6.png)]
 ???
-Готово! Желательно на лету. Все конфиги должны быть одинаковые.
+- Теперь вшард перетащит туда часть данных
 
 <!-- ############################################################ -->
 ---
@@ -136,7 +147,7 @@ vshard.storage.cfg(...)
 ```
 
 ???
-
+- Конфиг выгляди так
 - На самом деле это не просто
 - История с митапа хайлоада-2018
 - Какие могут быть сюрпризы?
@@ -222,16 +233,18 @@ topology:
 .center[
 ![:scale 550px](images/egg.jpg)
 ]
-.pull-left[.pull-right[.center[
-Database
-<br/>
-`tcp_listen()`
-]]]
-.pull-right[.pull-left[.center[
-Orchestrator
-<br/>
-`apply_2pc()`
-]]]
+.margin-top-0[
+	.pull-left[.pull-right[.center[
+	Database
+	<br/>
+	`tcp_listen()`
+	]]]
+	.pull-right[.pull-left[.center[
+	Orchestrator
+	<br/>
+	`apply_2pc()`
+	]]]
+]
 
 ???
 
@@ -244,9 +257,27 @@ Orchestrator
 ---
 ## Membership implementation
 
-- SWIM protocol - one of gossips family
+- SWIM protocol - one of the **gossips** protocols family
 
-### Картинка как работает свим
+--
+.override[.ilustrate[![:scale 100%](images/mm-p0.1.svg)]]
+--
+.override[.ilustrate[![:scale 100%](images/mm-p0.2.svg)]]
+--
+.override[.ilustrate[![:scale 100%](images/mm-p1.svg)]]
+--
+.override[.ilustrate[![:scale 100%](images/mm-p2.0.svg)]]
+
+---
+## Membership implementation
+
+- SWIM protocol - one of the **gossips** protocols family
+- Dissemination speed: O(logN)
+- Network load: O(N)
+
+.override[.ilustrate[![:scale 100%](images/mm-p2.2.svg)]]
+--
+.override[.ilustrate[![:scale 100%](images/mm-p3.svg)]]
 
 ???
 
@@ -260,7 +291,6 @@ Orchestrator
 ## Bootsrapping new instance
 
 .pull-left-70[
-<br/>
 1. New process starts
 1. New process joins membership
 1. Cluster checks new process is alive
@@ -272,17 +302,14 @@ Orchestrator
 1. Repeat N times
 ]
 --
-.pull-right-30[.center[
-<br/>
-![:scale 340px](images/plan-aaa.jpg)
+.pull-right-30[.center[.margin-top-0[
+![:scale 320px](images/plan-aaa.jpg)
 N = 100
-]]
+]]]
 
 <!-- ############################################################ -->
 ---
 ## Benefits so far
-
-<br/>
 
 1. Orchestration works
 
@@ -296,8 +323,6 @@ N = 100
 ---
 ## Benefits so far
 
-<br/>
-
 1. Orchestration works
 1. Monitoring works
 
@@ -308,8 +333,6 @@ N = 100
 <!-- ############################################################ -->
 ---
 ## Benefits so far
-
-<br/>
 
 1. Orchestration works
 1. Monitoring works
@@ -325,7 +348,6 @@ N = 100
 ---
 ## Role management
 
-<br/>
 - `function init()`
 ???
 Когда дёргается инит?<br/>
@@ -344,8 +366,6 @@ N = 100
 <!-- ############################################################ -->
 ---
 ## Refactoring the bootstrap process
-
-<br/>
 
 - Assembling large clusters with 100+ instances is slow
 - N two-phase commits are slow
@@ -373,10 +393,8 @@ N = 100
   [@tarantool_news](https://t.me/tarantool_news)
 <br/>
 <br/>
-- Cartridge Framework - [github.com/tarantool/cartridge](https://github.com/tarantool/cartridge)
+- Cartridge framework - [github.com/tarantool/cartridge](https://github.com/tarantool/cartridge)
 - Cartridge CLI - [github.com/tarantool/cartridge-cli](https://github.com/tarantool/cartridge-cli)
-<br/>
-<br/>
 - Posts on Habr - [habr.com/users/rosik/](https://habr.com/users/rosik/)
 - This presentation - [rosik.github.io/2019-bigdatadays](https://rosik.github.io/2019-bigdatadays)
 

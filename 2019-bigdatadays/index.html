@@ -43,7 +43,7 @@
       h1, h2, h3, h4 {
         font-family: 'Yanone Kaffeesatz';
         font-weight: 400;
-        margin-bottom: 0;
+        margin-bottom: 0.6;
       }
       .remark-slide-number {
         right: unset;
@@ -115,6 +115,15 @@
 
       .remark-notes-preview p:last-of-type {
         display: inline;
+      }
+
+
+      .remark-notes-preview ul {
+        display: none;
+      }
+
+      .remark-notes-preview ul:last-of-type {
+        display: inherit;
       }
 
       .titlepage {
@@ -216,7 +225,9 @@
         float: right;
         margin-top: -1em;
       }
-
+      .margin-top-0 {
+        margin-top: -1em;
+      }
       .override {
         display: none;
       }
