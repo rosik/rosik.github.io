@@ -1,15 +1,13 @@
 class: center
 background-size: contain
-background-image: url(images/bg-title.jpg)
+background-image: url(images/bg-title.png)
 
 .titlepage[
-# .titlecolor[Построение крупных кластеров Tarantool из 100+ узлов]
+# .titlecolor[Построение крупных кластеров Tarantool <br/> из 100+ узлов]
 
 ## .namecolor[Ярослав Дынников]
-<!-- <br> -->
-
 ### .subtitlecolor[Tarantool, Mail<span>.</span>Ru Group]
-#### .subtitlecolor[8 ноября 2019]
+<!-- #### .subtitlecolor[8 ноября 2019] -->
 ]
 
 <!-- .footnote[

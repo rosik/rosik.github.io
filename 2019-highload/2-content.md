@@ -184,6 +184,8 @@ vshard.storage.cfg(...)
 ---
 ## Orchestrator requirements
 
+- Manages vshard configuration
+
 - Doesn't start/stop instances (systemd can do that)
 - Applies configuration only
 - Every cluster node can manage others
