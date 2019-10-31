@@ -48,37 +48,68 @@ Application server (Lua)
 
 ### Common goals
 
-* Make development **fast** and **reliable**
+* Make development **fast** and reliable
 
 ???
 
 * Делимся опытом и проблемами
 * Чтобы не было багов
 * Главное - Чтобы разработка велась быстро
+* Об этом "быстро" мы и поговорим
 
 <!-- ############################################################ -->
 ---
-## In-memory no-SQL
+## Instrumentation
 
-* Not only in-memory: `vinyl` disk engine
-* Supports SQL (since v.2)
+.override[.center[![:scale 900px](images/stack-1.1.svg)]]
+--
+.override[.center[![:scale 900px](images/stack-1.2.svg)]]
+--
+.override[.center[![:scale 900px](images/stack-2.1.svg)]]
+--
+.override[.center[![:scale 900px](images/stack-2.2.svg)]]
+--
+.override[.center[![:scale 900px](images/stack-3.svg)]]
 
 ???
 
+* Давайте посмотрим на набор инструментов,
+  которые есть у нас в распоряжении
+* Самый главный инструмент, понятно, тарантул.
 * Помимо тех преимуществ, которые нам даёт объединение
-  сервера приложений и БД у тарантула есть и другие
+  сервера приложений и БД у тарантула есть и другие фичи
 * Уже давно не только in-memory - есть винил
 * И даже SQL есть
 
---
+* И тем не менее нужно уметь масштабироваться
+* Для этого есть вшард, который позволяет сделать базу распределенной.
+* Это не первая попытка реализовать шардинг. До этого было ещё две.
+* Третья получилась удачной, но всё равно не всемогущей.
 
-### But
+<!-- ############################################################ -->
+---
+## Vshard configuration
 
-* We need **scaling** (horizontal)
+- Lua tables
+
+```lua
+sharding_cfg = {
+    ['cbf06940-0790-498b-948d-042b62cf3d29'] = {
+        replicas = { ... },
+    },
+    ['ac522f65-aa94-4134-9f64-51ee384f1a54'] = {
+        replicas = { ... },
+    },
+}
+```
+```lua
+vshard.router.cfg(...)
+vshard.storage.cfg(...)
+```
 
 ???
-
-* И тем не менее нужно уметь масштабироваться
+- Во-первых,  дело в удобстве
+- Вшард управляется программно
 
 <!-- ############################################################ -->
 ---
@@ -127,36 +158,8 @@ Application server (Lua)
 
 <!-- ############################################################ -->
 ---
-## Vshard configuration
-
-- Lua tables
-
-```lua
-sharding_cfg = {
-    ['cbf06940-0790-498b-948d-042b62cf3d29'] = {
-        replicas = { ... },
-    },
-    ['ac522f65-aa94-4134-9f64-51ee384f1a54'] = {
-        replicas = { ... },
-    },
-}
-```
-```lua
-vshard.router.cfg(...)
-vshard.storage.cfg(...)
-```
-
-???
-- Конфиг выгляди так
-- На самом деле это не просто
-- История с митапа хайлоада-2018
-- Какие могут быть сюрпризы?
-
-<!-- ############################################################ -->
----
 ## Vshard automation. Options
 
-- Deployment scripts
 - Docker compose
 - Zookeeper
 
@@ -182,6 +185,13 @@ vshard.storage.cfg(...)
 
 <!-- ############################################################ -->
 ---
+## Microservices
+
+
+
+
+<!-- ############################################################ -->
+---
 ## Orchestrator requirements
 
 - Manages vshard configuration
@@ -199,6 +209,15 @@ vshard.storage.cfg(...)
   (нет никаких причин делать иначе)
 - Нам нужен мониторинг
   (в каком состоянии находится каждый узел)
+
+
+<!-- ############################################################ -->
+---
+## Как должно выглядеть управление кластером?
+
+- пользователь жмёт кнопку одну кнопку в веб-интерфейсе
+
+
 
 <!-- ############################################################ -->
 ---
@@ -227,6 +246,8 @@ topology:
 - Чтобы он не разъехался, будем применять его двухфазно
 - Задача выглядит не сложной, всего лишь 2pc.
 - Все инстарументы у нас есть,
+
+
 
 <!-- ############################################################ -->
 ---
@@ -290,23 +311,19 @@ topology:
 
 <!-- ############################################################ -->
 ---
+.pull-left-70[
 ## Bootsrapping new instance
 
-.pull-left-70[
 1. New process starts
 1. New process joins membership
 1. Cluster checks new process is alive
 1. Cluster applies configuration
 1. New process polls it from membership
 1. New process bootstraps
-<br/>
-<br/>
-1. Repeat N times
 ]
---
+
 .pull-right-30[.center[.margin-top-0[
-![:scale 320px](images/plan-aaa.jpg)
-N = 100
+![:scale 400px](images/seq-join-one.png)
 ]]]
 
 <!-- ############################################################ -->
@@ -365,6 +382,54 @@ N = 100
 ???
 Зачем нужен стоп
 
+
+<!-- ############################################################ -->
+---
+.pull-left-70[
+## Bootsrapping new instance
+
+1. New process starts
+1. New process joins membership
+1. Cluster checks new process is alive
+1. Cluster applies configuration
+1. New process polls it from membership
+1. New process bootstraps
+<br/>
+<br/>
+1. Repeat N times
+]
+
+.pull-right-30[.center[.margin-top-0[
+![:scale 400px](images/seq-join-one-2.png)<br/>
+]]]
+???
+
+<!-- ############################################################ -->
+---
+.pull-left-70[
+## Bootsrapping new instance
+
+1. New process starts
+1. New process joins membership
+1. Cluster checks new process is alive
+1. Cluster applies configuration
+1. New process polls it from membership
+1. New process bootstraps
+<br/>
+<br/>
+1. Repeat N times
+]
+
+<br/><br/>
+.pull-right-30[.center[.margin-top-0[
+![:scale 320px](images/plan-aaa.jpg)<br/>
+N = 100
+]]]
+
+???
+
+- Но вернёмся к нашей проблеме
+
 <!-- ############################################################ -->
 ---
 ## Refactoring the bootstrap process
@@ -380,9 +445,7 @@ N = 100
 - Bootstrap all instances with a single 2pc
 - Re-implement binary protocol and reuse port
 
-???
 
-- Но вернёмся к нашей проблеме
 
 <!-- ############################# -->
 ---

@@ -6,7 +6,7 @@ background-image: url(images/bg-title.png)
 # .titlecolor[Построение крупных кластеров Tarantool <br/> из 100+ узлов]
 
 ## .namecolor[Ярослав Дынников]
-### .subtitlecolor[Tarantool, Mail<span>.</span>Ru Group]
+### .subtitlecolor[Tarantool, Mail<span>.</span>ru Group]
 <!-- #### .subtitlecolor[8 ноября 2019] -->
 ]
 
