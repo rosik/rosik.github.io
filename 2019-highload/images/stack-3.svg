@@ -45,8 +45,8 @@
    showguides="true"
    inkscape:guide-bbox="true"
    inkscape:zoom="1"
-   inkscape:cx="966.27239"
-   inkscape:cy="218.07992"
+   inkscape:cx="613.27239"
+   inkscape:cy="210.07992"
    inkscape:window-x="70"
    inkscape:window-y="27"
    inkscape:window-maximized="1"
@@ -314,6 +314,8 @@
      x="635.54688"
      y="415.29947">Operating system</tspan></text>
 
+
+
 <image
    y="275"
    x="56.666664"
@@ -342,7 +344,9 @@
      sodipodi:role="line"
      id="tspan984-6"
      x="451.54947"
-     y="238.91795">VShard</tspan></text>
+     y="238.91795">Vshard</tspan></text>
+
+
 <g
    id="g933"
    transform="translate(-237.75427,5.2587857e-6)"
@@ -394,6 +398,8 @@
      id="tspan984"
      x="265.50778"
      y="416.03519">Operating system</tspan></text>
+
+
 <g
    id="g1054"
    transform="translate(213,90.00001)"><path

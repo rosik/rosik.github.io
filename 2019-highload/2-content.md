@@ -6,15 +6,15 @@
 ]
 
 .pull-left[.center[
-Database
+База данных
 <br/><br/>
-(Transactions, WAL)
+(Транзакции, WAL)
 ]]
 
 .pull-right[.center[
-Application server (Lua)
+Сервер приложений (Lua)
 <br/><br/>
-(Business logics, HTTP)
+(Бизнес логика, HTTP)
 ]]
 
 ???
@@ -27,14 +27,14 @@ Application server (Lua)
 <!-- ############################################################ -->
 ---
 
-## Core team
+## Ядро
 
-* 20 C developers
-* Product development
+* 20 разработчиков C
+* Развитие продукта
 
-## Solution team
-* 35 Lua developers
-* Commertial projects
+## Команда решений
+* 35 разработчиков Lua
+* Коммерческие проекты
 
 ???
 
@@ -46,9 +46,9 @@ Application server (Lua)
 
 --
 
-### Common goals
+### Цели
 
-* Make development **fast** and reliable
+* Меньше багов, больше продуктивность
 
 ???
 
@@ -59,38 +59,43 @@ Application server (Lua)
 
 <!-- ############################################################ -->
 ---
-## Instrumentation
+## Инструменты разработчика
 
 .override[.center[![:scale 900px](images/stack-1.1.svg)]]
---
-.override[.center[![:scale 900px](images/stack-1.2.svg)]]
---
-.override[.center[![:scale 900px](images/stack-2.1.svg)]]
---
-.override[.center[![:scale 900px](images/stack-2.2.svg)]]
---
-.override[.center[![:scale 900px](images/stack-3.svg)]]
-
 ???
 
 * Давайте посмотрим на набор инструментов,
   которые есть у нас в распоряжении
-* Самый главный инструмент, понятно, тарантул.
-* Помимо тех преимуществ, которые нам даёт объединение
-  сервера приложений и БД у тарантула есть и другие фичи
-* Уже давно не только in-memory - есть винил
-* И даже SQL есть
+* Самый главный инструмент - тарантул.
+  Не только In-memory, не тоьлко no-SQL
 
-* И тем не менее нужно уметь масштабироваться
-* Для этого есть вшард, который позволяет сделать базу распределенной.
-* Это не первая попытка реализовать шардинг. До этого было ещё две.
+--
+.override[.center[![:scale 900px](images/stack-1.2.svg)]]
+???
+* На его основе мы делаем проекты
+
+--
+.override[.center[![:scale 900px](images/stack-2.1.svg)]]
+???
+* Но нужно уметь масштабироваться
+
+--
+.override[.center[![:scale 900px](images/stack-2.2.svg)]]
+???
+* Два инстанса, а между ними пропасть
+
+--
+.override[.center[![:scale 900px](images/stack-3.svg)]]
+???
+* Для этого есть вшард, делает базу распределенной.
+* Не первая попытка сделать шардинг. Было ещё две.
 * Третья получилась удачной, но всё равно не всемогущей.
 
 <!-- ############################################################ -->
 ---
-## Vshard configuration
+## Конфигурация vshard
 
-- Lua tables
+- Vshard управляется программно:
 
 ```lua
 sharding_cfg = {
@@ -113,10 +118,10 @@ vshard.storage.cfg(...)
 
 <!-- ############################################################ -->
 ---
-## Vshard - horizontal scaling in tarantool
+## Vshard - горизонтальное масштабирование в Tarantool
 
-- Vshard assigns data to virtual buckets
-- Buckets are distributed across servers
+- Vshard группирует данные по виртуальным "ведёркам"
+- Ведёрок много, они распределены по серверам
 
 .override[![](images/vshard-p1.png)]
 ???
@@ -158,73 +163,70 @@ vshard.storage.cfg(...)
 
 <!-- ############################################################ -->
 ---
-## Vshard automation. Options
+## Оркестрация vshard
 
-- Docker compose
-- Zookeeper
-
+.override[.center[![:scale 900px](images/stack-4.1.svg)]]
 ???
 
 - Никто не хочет заниматься этим вручную
 - Мы тоже пробовали разные варианты
+
+--
+.override[.center[![:scale 900px](images/stack-4.2.svg)]]
+???
 - Какие сложности:
 - - Применять конфигурации на лету
 - - Следить за разнородными сервисами
 - - Не допустить потери данных
 
-<!-- ############################# -->
---
-
-- Our own orchestrator
-
-???
-
-- Мы решали мелкие проблемы, и система становилась неудобной
-- Мы стали пробовать написать свой собственный оркестратор
+- Мы решали мелкие проблемы
+- Cистема становилась неудобной
+-
 - Благо у нас есть сервер приложений
 
 <!-- ############################################################ -->
 ---
-## Microservices
+## Организация бизнес логики
 
+.override[.ilustrate[![](images/roles-p0.svg)]]
+???
+- Разработка приложения не начинается с деплоя
 
-
+--
+.override[.ilustrate[![](images/roles-p1.svg)]]
+--
+.override[.ilustrate[![](images/roles-p2.svg)]]
+--
+.override[.ilustrate[![](images/roles-p2.3.svg)]]
+--
+.override[.ilustrate[![](images/roles-p2.4.svg)]]
 
 <!-- ############################################################ -->
 ---
-## Orchestrator requirements
+## Как должно выглядеть управление кластером?
 
-- Manages vshard configuration
+- Мы запускаем процессы
+- Конфигурацией vshard управляет Tarantool
 
-- Doesn't start/stop instances (systemd can do that)
-- Applies configuration only
-- Every cluster node can manage others
-- Built-in monitoring
-
+.override[.ilustrate[![](images/roles-p3.png)]]
 ???
-
-- Изначатьно требования сложились примерно такие
+- пользователь жмёт кнопку одну кнопку в веб-интерфейсе
 - Мы не следим за запуском процессов
 - Управлять кластером можно с любого узла
   (нет никаких причин делать иначе)
 - Нам нужен мониторинг
   (в каком состоянии находится каждый узел)
 
+--
+.override[.ilustrate[![](images/roles-p4.2.png)]]
 
 <!-- ############################################################ -->
 ---
-## Как должно выглядеть управление кластером?
+## Конфигурация кластера
 
-- пользователь жмёт кнопку одну кнопку в веб-интерфейсе
-
-
-
-<!-- ############################################################ -->
----
-## Clusterwide configuration
-
-- **Must** be the same everywhere
-- Applied with two-phase commit
+- Одинаковая **везде**
+- Обновляется двухфазным коммитом
+- Самое главное - **топология**:
 
 ```yaml
 topology:
@@ -245,27 +247,27 @@ topology:
 - В отличие от вшарда, у кластера один общий конфиг
 - Чтобы он не разъехался, будем применять его двухфазно
 - Задача выглядит не сложной, всего лишь 2pc.
-- Все инстарументы у нас есть,
+- Все инструменты у нас есть,
 
 
 
 <!-- ############################################################ -->
 ---
-## Which came first?
+## Курица или яйцо?
 
 .center[
 ![:scale 550px](images/egg.jpg)
 ]
 .margin-top-0[
 	.pull-left[.pull-right[.center[
-	Database
+	База данных
 	<br/>
-	`tcp_listen()`
+	`net.box call`
 	]]]
 	.pull-right[.pull-left[.center[
-	Orchestrator
+	Новый процесс
 	<br/>
-	`apply_2pc()`
+	`box.cfg listen`
 	]]]
 ]
 
@@ -278,9 +280,9 @@ topology:
 
 <!-- ############################################################ -->
 ---
-## Membership implementation
+## Внутренний мониторинг
 
-- SWIM protocol - one of the **gossips** protocols family
+- Протокол SWIM - распространение **слухов**
 
 --
 .override[.ilustrate[![:scale 100%](images/mm-p0.1.svg)]]
@@ -351,20 +353,6 @@ topology:
 
 <!-- ############################################################ -->
 ---
-## Benefits so far
-
-1. Orchestration works
-1. Monitoring works
-1. We can assign any role to the instance
-
-<!-- .override[.ilustrate[![](images/roles-p2.png)]]
--- -->
-.override[.ilustrate[![](images/roles-p4.2.png)]]
---
-.override[.ilustrate[![](images/roles-p3.png)]]
-
-<!-- ############################################################ -->
----
 ## Role management
 
 - `function init()`
@@ -382,6 +370,23 @@ topology:
 ???
 Зачем нужен стоп
 
+
+<!-- ############################################################ -->
+---
+.pull-left-70[
+## Bootsrapping new instance
+
+1. New process starts
+1. New process joins membership
+1. Cluster checks new process is alive
+1. Cluster applies configuration
+1. New process polls it from membership
+1. New process bootstraps
+]
+
+.pull-right-30[.center[.margin-top-0[
+![:scale 400px](images/seq-join-one.png)
+]]]
 
 <!-- ############################################################ -->
 ---
@@ -445,6 +450,13 @@ N = 100
 - Bootstrap all instances with a single 2pc
 - Re-implement binary protocol and reuse port
 
+
+<!-- ############################################################ -->
+---
+.pull-left-70[
+## Bootsrapping new instance
+![:scale 320px](images/seq-join-two.png)<br/>
+]
 
 
 <!-- ############################# -->
