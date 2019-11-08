@@ -19,10 +19,11 @@
 
 ???
 
-* Вопрос залу - Кто работал? Кто слышал название?
+* Вопрос залу - Кто не знает?
 * Тарантул - это ...
-* Применяется он в самых разных сценариях:
-  как бд кеши, очереди, сессии; и как аппсервер
+* Применяется в самых разных сценариях:
+* Иногда ради хранения данных с 1-2 хранимками
+* Иногда больше как сервер приложений
 
 <!-- ############################################################ -->
 ---
@@ -38,9 +39,9 @@
 
 ???
 
-* Коллекив 70 человек
-* Преимущественно программисты
-* Условно две половинки
+* Коллектив не перестаёт расти
+* сейчас чуть меньше 80
+* большая часть из них - разработчики
 * Команда ядра развивает опенсорс платформу
 * Команда решений делает коммерческие проекты
 
@@ -52,10 +53,10 @@
 
 ???
 
-* Делимся опытом и проблемами
+* Тесно взаимодействуем
 * Чтобы не было багов
-* Главное - Чтобы разработка велась быстро
-* Об этом "быстро" мы и поговорим
+* Главное - чтобы разработка велась быстро
+* **Об этом "быстро" мы и поговорим**
 
 <!-- ############################################################ -->
 ---
@@ -67,7 +68,8 @@
 * Давайте посмотрим на набор инструментов,
   которые есть у нас в распоряжении
 * Самый главный инструмент - тарантул.
-  Не только In-memory, не тоьлко no-SQL
+* Быстрый, много фич, SQL завезли,
+  функ индексы
 
 --
 .override[.center[![:scale 900px](images/stack-1.2.svg)]]
@@ -169,6 +171,7 @@ vshard.storage.cfg(...)
 ???
 
 - Никто не хочет заниматься этим вручную
+- История с хайлоада
 - Мы тоже пробовали разные варианты
 
 --
@@ -181,7 +184,6 @@ vshard.storage.cfg(...)
 
 - Мы решали мелкие проблемы
 - Cистема становилась неудобной
--
 - Благо у нас есть сервер приложений
 
 <!-- ############################################################ -->
@@ -200,6 +202,8 @@ vshard.storage.cfg(...)
 .override[.ilustrate[![](images/roles-p2.3.svg)]]
 --
 .override[.ilustrate[![](images/roles-p2.4.svg)]]
+???
+- Как тестировать?
 
 <!-- ############################################################ -->
 ---
@@ -282,10 +286,11 @@ topology:
 ---
 ## Внутренний мониторинг
 
-- Протокол SWIM - распространение **слухов**
+- Протокол SWIM - распространение **слухов** по UDP
 
---
 .override[.ilustrate[![:scale 100%](images/mm-p0.1.svg)]]
+???
+- Этим механизмом стал SWIM
 --
 .override[.ilustrate[![:scale 100%](images/mm-p0.2.svg)]]
 --
@@ -294,58 +299,79 @@ topology:
 .override[.ilustrate[![:scale 100%](images/mm-p2.0.svg)]]
 
 ---
-## Membership implementation
+## Внутренний мониторинг
 
-- SWIM protocol - one of the **gossips** protocols family
-- Dissemination speed: O(logN)
-- Network load: O(N)
+- Протокол SWIM - распространение **слухов** по UDP
+- Всеобщая осведомлённость: O(logN)
+- Нагрузка на сеть: O(N)
 
 .override[.ilustrate[![:scale 100%](images/mm-p2.2.svg)]]
+???
+- Весь кластер узнает о событии за log(N)
+- Не слишком сильно нагружает
+
 --
 .override[.ilustrate[![:scale 100%](images/mm-p3.svg)]]
-
 ???
-
-- Поможет нам в этом мониторинг
-- Как именно - станет ясно чуть позже, а пока про сам протокол
-- Свим протогол
-- Оч классный, меньше всего проблем с ним было
+- Событиями в первую очередь являются жив/мертв
+- И полезная нагрузка
+- Влад расскажет
 
 <!-- ############################################################ -->
 ---
-.pull-left-70[
-## Bootsrapping new instance
+## Прототип кластера
 
-1. New process starts
-1. New process joins membership
-1. Cluster checks new process is alive
-1. Cluster applies configuration
-1. New process polls it from membership
-1. New process bootstraps
-]
+.override[.ilustrate[![](images/seq-p2.6.svg)]]
+???
+- получилась схема
 
-.pull-right-30[.center[.margin-top-0[
-![:scale 400px](images/seq-join-one.png)
-]]]
+--
+.override[.ilustrate[![](images/seq-p2.5.svg)]]
+--
+.override[.ilustrate[![](images/seq-p2.4.svg)]]
+--
+.override[.ilustrate[![](images/seq-p2.3.svg)]]
+--
+.override[.ilustrate[![](images/seq-p2.2.svg)]]
+--
+.override[.ilustrate[![](images/seq-p2.1.svg)]]
+--
+.override[.ilustrate[![](images/seq-p2.0.svg)]]
+
+
 
 <!-- ############################################################ -->
 ---
-## Benefits so far
+## Структура кластера
 
-1. Orchestration works
+1. Сервера повсюду
 
 .override[.ilustrate[![](images/topology-p1.png)]]
---
+
+<!-- ############################################################ -->
+---
+## Структура кластера
+
+1. Сервера повсюду (объединены в репликационные группы)
+
 .override[.ilustrate[![](images/topology-p3.png)]]
---
+
+<!-- ############################################################ -->
+---
+## Структура кластера
+
+1. Сервера повсюду (объединены в репликационные группы)
+1. В каждой группе есть "лидер"
+
 .override[.ilustrate[![](images/topology-p4.png)]]
 
 <!-- ############################################################ -->
 ---
-## Benefits so far
+## Структура кластера
 
-1. Orchestration works
-1. Monitoring works
+1. Сервера повсюду (объединены в репликационные группы)
+1. В каждой группе есть "лидер"
+1. Внутренний мониторинг позволяет обрабатывать отказы
 
 .override[.ilustrate[![](images/topology-p5.png)]]
 --
@@ -353,126 +379,107 @@ topology:
 
 <!-- ############################################################ -->
 ---
-## Role management
+## Разработка кастомных ролей
 
 - `function init()`
-???
-Когда дёргается инит?<br/>
-Что можно/нужно делать на ините?
---
 - `function validate_config()`
 - `function apply_config()`
-???
-Роли могут пользоваться распределённым конфигом.
-Что полезного там можно хранить?
---
 - `function stop()`
+
+.ilustrate[![](images/roles-p2.png)]
 ???
-Зачем нужен стоп
+- Изначально модули были плотно завязаны в коде.
+- Хорошая точка расширения.
+- Роли могут пользоваться распределённым конфигом.
 
 
 <!-- ############################################################ -->
 ---
-.pull-left-70[
-## Bootsrapping new instance
+## Фреймворк разработки распределённых сервисов
 
-1. New process starts
-1. New process joins membership
-1. Cluster checks new process is alive
-1. Cluster applies configuration
-1. New process polls it from membership
-1. New process bootstraps
-]
+.override[.ilustrate[![](images/stack-5.svg)]]
 
-.pull-right-30[.center[.margin-top-0[
-![:scale 400px](images/seq-join-one.png)
-]]]
 
 <!-- ############################################################ -->
 ---
-.pull-left-70[
-## Bootsrapping new instance
+## Проблемы масштабирования
 
-1. New process starts
-1. New process joins membership
-1. Cluster checks new process is alive
-1. Cluster applies configuration
-1. New process polls it from membership
-1. New process bootstraps
-<br/>
-<br/>
-1. Repeat N times
-]
+.override[.ilustrate[![](images/seq-p3.2.svg)]]
+--
+.override[.ilustrate[![](images/seq-p3.1.svg)]]
+--
+.override[.ilustrate[![](images/seq-p3.0.svg)]]
 
-.pull-right-30[.center[.margin-top-0[
-![:scale 400px](images/seq-join-one-2.png)<br/>
-]]]
+
+
+<!-- ############################################################ -->
+---
+## Проблема масштабирования №1
+
+- Присоединение инстансов по-одному не эффективно
+--
+- Надо делать один двухфазный коммит на всех
+--
+.override[.ilustrate[![](images/seq-p4.svg)]]
+
+<!-- ############################################################ -->
+---
+
+## Проблема масштабирования №1
+
+* Гонки появляются в другом месте
+
+```lua
+box.cfg({
+  listen = ...,
+  replication = {
+    'user:password@localhost:3301',
+    'user:password@localhost:3302',
+  }
+})
+
+box.schema.user.create('user', 'password')
+box.schema.user.grant('user', 'replication')
+```
+
+<!-- ############################################################ -->
+---
+
+## Проблема масштабирования №2
+
+- Поллинг не эффективен
+- Проблемы инициализации сложно диагностировать
+--
+
+```lua
+iproto.listen('0.0.0.0', 3301, {
+  username = ...,
+  password = ...,
+})
+```
 ???
-
-<!-- ############################################################ -->
----
-.pull-left-70[
-## Bootsrapping new instance
-
-1. New process starts
-1. New process joins membership
-1. Cluster checks new process is alive
-1. Cluster applies configuration
-1. New process polls it from membership
-1. New process bootstraps
-<br/>
-<br/>
-1. Repeat N times
-]
-
-<br/><br/>
-.pull-right-30[.center[.margin-top-0[
-![:scale 320px](images/plan-aaa.jpg)<br/>
-N = 100
-]]]
-
-???
-
-- Но вернёмся к нашей проблеме
-
-<!-- ############################################################ -->
----
-## Refactoring the bootstrap process
-
-- Assembling large clusters with 100+ instances is slow
-- N two-phase commits are slow
-- N config pollings is slow
+- Почему мы не сделали этого раньше?
 
 --
 
-### Solution
-
-- Bootstrap all instances with a single 2pc
-- Re-implement binary protocol and reuse port
-
-
-<!-- ############################################################ -->
----
-.pull-left-70[
-## Bootsrapping new instance
-![:scale 320px](images/seq-join-two.png)<br/>
-]
-
+```lua
+conn.eval('
+  iproto.stop()
+  box.cfg({listen = 3301})
+')
+```
+???
+- Прелести
 
 <!-- ############################# -->
 ---
-## Links
+## Ссылки
 
-- [tarantool.io](https://www.tarantool.io/)
-- [github.com/tarantool/tarantool](https://github.com/tarantool/tarantool)
-- Telegram -
-  [@tarantool](https://t.me/tarantool),
-  [@tarantool_news](https://t.me/tarantool_news)
-<br/>
-<br/>
 - Cartridge framework - [github.com/tarantool/cartridge](https://github.com/tarantool/cartridge)
+
 - Cartridge CLI - [github.com/tarantool/cartridge-cli](https://github.com/tarantool/cartridge-cli)
-- Posts on Habr - [habr.com/users/rosik/](https://habr.com/users/rosik/)
+
 - This presentation - [rosik.github.io/2019-bigdatadays](https://rosik.github.io/2019-bigdatadays)
 
-## Questions?
+<br/>
+# Вопросы?
