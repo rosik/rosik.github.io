@@ -1,2 +1,12 @@
 * text eol=lf
+*.ttf binary
 *.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.svg binary
+*.odt binary
+*.drawio binary
+
+# Disable EOL normalization for vendored libs
+# /vendor/** -text
