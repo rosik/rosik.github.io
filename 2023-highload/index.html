@@ -5,14 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style>
 
-      /*@font-face{
+      @font-face{
         font-family: 'TTTravels-Regular';
         src: url('TTTravels-Regular.ttf');
       }
       @font-face{
-        font-family: 'TTTravels-Bold';
-        src: url('TTTravels-Bold.ttf');
-      }*/
+        font-family: 'Montserrat';
+        src: url('template/Montserrat-VariableFont_wght.ttf');
+      }
 
       @page {
         size: 1210px 681px;
@@ -20,7 +20,7 @@
       }
 
       .remark-slide-content {
-        background-image: url("images/bg-slide.png");
+        background-image: url("template/bg-page-slideno.svg");
         background-size: contain;
       }
       @media print {
@@ -40,30 +40,78 @@
         text-indent: -5px;
       }*/
       body {
-        font-family: 'TT Travels', 'Verdana', sans-serif;
+        font-family: 'Montserrat', 'Arial', sans-serif;
       }
-      h1, h2, h3, h4 {
-        font-family: 'TT Travels', 'Verdana', sans-serif;
+
+      .titlepage {
+        padding-top: 1em;
+        /*float: right;*/
+        width: 100%;
+        text-align: center;
+      }
+
+      .titlepage h1 {
+        color: #ffffff;
+        margin-top: 100px;
+        margin-bottom: 50px;
+      }
+      .titlepage h2 {
+        color: #ffffff;
+      }
+      .titlepage h3 {
         font-weight: normal;
-        margin-bottom: 0.6;
+        font-size: 24pt;
+        color: #ffffff;
       }
+      .titlepage .footnote {
+        color: #ffffff;
+        /* font-size: 24pt; */
+      }
+      .titlepage a {
+        color: #cdbbf5;
+      }
+      .titlepage .remark-slide-number {
+        visibility: hidden;
+      }
+      h1 {
+        font-weight: bold;
+        font-size: 36pt;
+      }
+
+      h2 {
+        font-weight: bold;
+        font-size: 24pt;
+      }
+
+      h3 {
+        font-weight: normal;
+        font-size: 24pt;
+      }
+
       .remark-slide-number {
-        right: unset;
-        opacity: 0.8;
-        color: #b0b0b0;
-        left: 20px;
+        position: absolute;
+        top: 36px;
+        right: 19px;
+        width: 50px;
+        color: #838383;
+        font-weight: normal;
+        font-size: 18pt;
+        text-align: center;
+        opacity: 1;
+        bottom: auto
       }
-      .remark-slide-content p { font-size: 1.3em; }
-      .remark-slide-content h1 { font-size: 3em; }
-      .remark-slide-content h2 { font-size: 2.5em; }
-      .remark-slide-content h3 { font-size: 2.0em; }
-      .remark-slide-content h4 { margin: 0.5em; font-size: 1.5em; }
+
+      .remark-slide-content p {
+        font-size: 1.3em;
+      }
+
       .footnote {
         position: absolute;
         text-align: right;
         right: 4em;
         bottom: 2em;
       }
+
       li { font-size: 1.4em; line-height: 1.4em; }
       li > ul > li {
         font-size: 1em
@@ -72,21 +120,13 @@
       .remark-slide ul {
         list-style-type: disc;
       }
-      .titlecolor {
-        font-family: 'TT Travels Bold', 'Verdana', sans-serif;
-        font-weight: bold;
-        font-size: 32pt;
-        color: #000000;
-      }
-      .namecolor { color: #000000; }
-      .subtitlecolor { color: #000000; }
       .red { color: #ff0000; }
       .grey { color: #aaaaaa; }
       .white { color: #ffffff; }
       .large { font-size: 2em; }
       a, a > code {
-        color: rgb(249, 38, 114);
-        text-decoration: none;
+        color: #6a41c6;
+      	text-decoration: underline;
       }
       code {
         background: #e7e8e2;
@@ -136,13 +176,6 @@
 
       .remark-notes-preview ul:last-of-type {
         display: inherit;
-      }
-
-      .titlepage {
-        padding-top: 1em;
-        /*float: right;*/
-        width: 100%;
-        text-align: left;
       }
 
       .pull-left {
@@ -305,7 +338,10 @@
         highlightStyle: 'tomorrow',
         highlightLanguage: 'remark',
         highlightLines: true,
-        highlightSpans: true
+        highlightSpans: true,
+        slideNumberFormat: function (current, total) {
+          return current - 1;
+        },
       });
     </script>
   </body>

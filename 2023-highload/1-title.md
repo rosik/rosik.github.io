@@ -1,10 +1,13 @@
-class: center
+class: titlepage
 background-size: contain
-background-image: url(images/bg-slide.png)
+background-image: url(template/bg-title-left.svg)
 
-.titlepage[
-# .titlecolor[Как при помощи бумаги, карандаша<br/> и алгоритма raft достичь консенсуса]
-#### .namecolor[Ярослав Дынников]
-#### .subtitlecolor[Picodata]
-.footnote[Слайды: https://rosik.github.io/2022-fit-m]
-]
+# Как при помощи бумаги, карандаша<br/> и алгоритма raft достичь консенсуса
+## Ярослав Дынников
+### Picodata
+.footnote[Слайды: https://rosik.github.io/2023-highload]
+
+???
+
+* Когда перебивать
+* Зачем мы здесь
