@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1050"
+   height="450"
+   viewBox="0 0 277.8125 119.0625"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="test.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="px"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="0.76497804"
+     inkscape:cx="495.43906"
+     inkscape:cy="332.68929"
+     inkscape:window-width="1846"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     borderlayer="true"
+     showborder="true"
+     inkscape:showpageshadow="true"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-object-midpoints="false"
+     inkscape:snap-center="true" />
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1734">
+      <path
+         d="M 0,0.028 H 595.275 V 841.889 H 0 Z"
+         clip-rule="evenodd"
+         id="path1732" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5199">
+      <path
+         d="M 0,0.028 H 595.275 V 841.889 H 0 Z"
+         clip-rule="evenodd"
+         id="path5197" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath6407">
+      <path
+         d="M 0,0.028 H 595.275 V 841.889 H 0 Z"
+         clip-rule="evenodd"
+         id="path6405" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1022">
+      <path
+         d="M 0,0.028 H 595.275 V 841.889 H 0 Z"
+         clip-rule="evenodd"
+         id="path1020" />
+    </clipPath>
+    <style
+       id="style11">
+         :target {
+            visibility: hidden;
+         }
+    </style>
+  </defs>
+  <g
+     inkscape:label="l2"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#5e80ff;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-linecap:round;stop-color:#000000"
+       class="group_a"
+       id="the_rect"
+       width="68.875542"
+       height="64.468369"
+       x="193.18083"
+       y="27.919584"
+       inkscape:label="a,b" />
+    <path
+       style="fill:#ff825e;fill-opacity:1;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 118.32959,60.567868 102.05747,107.57248 174.55921,95.083311 Z"
+       id="tria"
+       inkscape:label="b" />
+  </g>
+  <g
+     id="layer2"
+     inkscape:label="l1"
+     inkscape:groupmode="layer">
+    <ellipse
+       style="fill:#3bff42;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-linecap:round;stop-color:#000000"
+       id="the_rect"
+       cx="62.341129"
+       cy="56.670746"
+       rx="31.886961"
+       ry="32.700298"
+       inkscape:label="a" />
+  </g>
+</svg>
