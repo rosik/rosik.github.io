@@ -72,6 +72,7 @@ background-image: url(template/bg-title-left.svg)
 <!-- ############################################################ -->
 ---
 class: sectionpage
+count: false
 background-size: contain
 background-image: url(template/bg-section.svg)
 # Raft
@@ -109,12 +110,14 @@ background-image: url(template/bg-section.svg)
 ---
 # Термы
 .center[![:scale 1050px](images/raft-terms.svg)]
+- TODO: определение
 
 <!-- ############################################################ -->
 <!-- ############################################################ -->
 <!-- ############################################################ -->
 ---
 class: sectionpage
+count: false
 background-size: contain
 background-image: url(template/bg-section.svg)
 # Выборы лидера
@@ -156,6 +159,7 @@ background-image: url(template/bg-section.svg)
 <!-- ############################################################ -->
 ---
 class: sectionpage
+count: false
 background-size: contain
 background-image: url(template/bg-section.svg)
 # Репликация журнала
@@ -199,6 +203,13 @@ background-image: url(template/bg-section.svg)
 
 <!-- ############################################################ -->
 ---
+# i2, i3, сохраняйте записи
+<!-- .timer[⏱] -->
+<!-- .center[![:scale 1050px](images/multiframe-2.svg#frame7)] -->
+
+
+<!-- ############################################################ -->
+---
 # i4, потеряйте сообщение
 .timer[⏱]
 .center[![:scale 1050px](images/multiframe-2.svg#frame7)]
@@ -208,6 +219,7 @@ background-image: url(template/bg-section.svg)
 <!-- ############################################################ -->
 ---
 class: sectionpage
+count: false
 background-size: contain
 background-image: url(template/bg-section.svg)
 # Терм без лидера
@@ -244,6 +256,7 @@ background-image: url(template/bg-section.svg)
 <!-- ############################################################ -->
 ---
 class: sectionpage
+count: false
 background-size: contain
 background-image: url(template/bg-section.svg)
 # Перезапись журнала
@@ -283,6 +296,11 @@ background-image: url(template/bg-section.svg)
 
 <!-- ############################################################ -->
 ---
+# i4 получает ответ
+
+
+<!-- ############################################################ -->
+---
 # Факультатив
 
 - Динамическое изменение топологии.
@@ -291,14 +309,24 @@ background-image: url(template/bg-section.svg)
 
 <!-- ############################################################ -->
 ---
+class: finalpage
+background-size: contain
+background-image: url(template/bg-final.svg)
+
 # Материалы
 
-- Слайды: https://rosik.github.io/2023-highload
+Слайды:
+https://rosik.github.io/2023-highload
 
-- [@picodataru](https://t.me/picodataru), https://picodata.io/
+Picodata:
+https://picodata.io/,
+[@picodataru](https://t.me/picodataru)
 
-- Raft: https://raft.github.io/
+Raft:
+https://raft.github.io/
 
-> In search of Understandable Consensus Algorithm.<br/>
-  Diego Ongaro and John Ousterhout.<br/>
-  Stanford University.
+.qr[
+  **Обратная связь**:<br/><br/>
+  ![:scale 100%](images/qr.gif)
+  https://conf.ontico.ru/online/shl2023/details/4937163<br/><br/>
+]
