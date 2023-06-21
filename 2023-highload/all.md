@@ -369,5 +369,9 @@ https://raft.github.io/
 .qr[
   **Обратная связь**:<br/><br/>
   ![:scale 100%](images/qr.gif)
-  https://conf.ontico.ru/online/shl2023/details/4937163<br/><br/>
+  <a href="https://conf.ontico.ru/online/shl2023/details/4937163">
+  https://conf.ontico.ru<br>
+  /online/shl2023<br>
+  /details/4937163
+  </a><br/><br/>
 ]
