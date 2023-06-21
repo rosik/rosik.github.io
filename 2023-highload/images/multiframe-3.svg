@@ -24,9 +24,9 @@
      inkscape:document-units="px"
      showgrid="false"
      units="px"
-     inkscape:zoom="0.74981544"
-     inkscape:cx="529.46363"
-     inkscape:cy="646.15901"
+     inkscape:zoom="1.0332302"
+     inkscape:cx="538.11821"
+     inkscape:cy="2146.1819"
      inkscape:window-width="1846"
      inkscape:window-height="1016"
      inkscape:window-x="74"
@@ -40,7 +40,8 @@
      inkscape:guide-bbox="true"
      inkscape:snap-object-midpoints="false"
      inkscape:snap-center="true"
-     scale-x="1">
+     scale-x="1"
+     inkscape:object-paths="true">
     <sodipodi:guide
        position="0,-550"
        orientation="0,1"
@@ -8632,6 +8633,14 @@
            id="path4713" />
       </g>
     </g>
+    <rect
+       style="display:inline;fill:none;fill-opacity:1;stroke:#2a74ff;stroke-width:2.66667;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+       id="rect4777-5-3"
+       width="28.958363"
+       height="31.715094"
+       x="788.94177"
+       y="804.19391"
+       rx="10" />
     <g
        id="g18731-3-5"
        style="display:inline;fill:#000000"
@@ -8715,7 +8724,7 @@
            style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Italic';fill:#000000;fill-opacity:1">7</tspan></text>
       <text
          xml:space="preserve"
-         style="font-size:21.3333px;line-height:1.25;font-family:sans-serif;display:inline;fill:#2a74ff;fill-opacity:1"
+         style="font-size:21.3333px;line-height:1.25;font-family:sans-serif;display:inline;fill:#000000;fill-opacity:1"
          x="575.77539"
          y="317.94263"
          id="text18665-1"><tspan
@@ -8723,7 +8732,7 @@
            id="tspan18663-9"
            x="575.77539"
            y="317.94263"
-           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Italic';fill:#2a74ff;fill-opacity:1">8</tspan></text>
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Italic';fill:#000000;fill-opacity:1">8</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:21.3333px;line-height:1.25;font-family:sans-serif;display:inline;fill:#000000;fill-opacity:1"
@@ -9547,12 +9556,20 @@
       <g
          aria-label="4"
          id="text18649-9-6-6"
-         style="font-size:21.3333px;line-height:1.25;display:inline;fill:#2a74ff;fill-opacity:1">
+         style="font-size:21.3333px;line-height:1.25;display:inline;fill:#000000;fill-opacity:1">
         <path
            d="m 944.97755,144.88981 -6.51041,7.93749 h 4.92707 z m 0.0417,-2.19791 h 2.42708 l -1.97916,10.1354 h 2.06249 l -0.31249,1.70833 h -2.07292 l -0.72916,3.70833 h -2.0625 l 0.71875,-3.70833 h -6.60416 l 0.375,-1.98958 z"
-           style="font-style:italic;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Italic';fill:#2a74ff;fill-opacity:1"
+           style="font-style:italic;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Italic';fill:#000000;fill-opacity:1"
            id="path52665-4" />
       </g>
+      <rect
+         style="display:inline;fill:none;fill-opacity:1;stroke:#2a74ff;stroke-width:2.66667;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+         id="rect4777-5"
+         width="43.2724"
+         height="33.507343"
+         x="920.36218"
+         y="133.71428"
+         rx="10" />
       <g
          aria-label="t1"
          id="text40575-8"

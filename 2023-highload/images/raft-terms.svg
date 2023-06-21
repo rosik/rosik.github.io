@@ -3,12 +3,12 @@
 
 <svg
    width="1050"
-   height="450"
-   viewBox="0 0 277.8125 119.0625"
+   height="345"
+   viewBox="0 0 277.8125 91.28125"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   sodipodi:docname="raft-3.svg"
+   sodipodi:docname="raft-terms.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,14 +25,14 @@
      showgrid="false"
      units="px"
      inkscape:zoom="0.83762816"
-     inkscape:cx="469.18194"
+     inkscape:cx="459.03423"
      inkscape:cy="179.674"
      inkscape:window-width="1846"
      inkscape:window-height="1016"
      inkscape:window-x="74"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g4282"
+     inkscape:current-layer="layer1"
      borderlayer="true"
      showborder="true"
      inkscape:showpageshadow="true"
@@ -41,12 +41,7 @@
      inkscape:snap-object-midpoints="false"
      inkscape:snap-center="true"
      inkscape:snap-text-baseline="true"
-     inkscape:object-paths="true">
-    <sodipodi:guide
-       position="84.800661,87.425914"
-       orientation="0,-1"
-       id="guide9730" />
-  </sodipodi:namedview>
+     inkscape:object-paths="true" />
   <defs
      id="defs2">
     <clipPath
@@ -88,7 +83,7 @@
      id="layer1">
     <g
        id="g4282"
-       transform="matrix(0.26622329,0,0,-0.26622329,59.647632,218.55941)">
+       transform="matrix(0.26622329,0,0,-0.26622329,67.62184,207.1386)">
       <g
          id="g15429"
          transform="matrix(1.3257112,0,0,1.3257112,13.808449,499.28562)" />
