@@ -357,7 +357,10 @@ background-image: url(template/bg-final.svg)
 # Материалы
 
 Слайды:
-https://rosik.github.io/2023-highload
+
+- Online: https://rosik.github.io/2023-highload
+- PDF: [slides.pdf](slides.pdf)
+- Раздатка: [form.pdf](form.pdf)
 
 Picodata:
 https://picodata.io/,
