@@ -156,7 +156,7 @@ background-image: url(template/bg-section.svg)
 
 <!-- ############################################################ -->
 ---
-# i2-i8: «Ок».
+# i2-i8: «Ок»
 .center[![:scale 1050px](images/multiframe-1.svg#frame4)]
 .timer[⏱]
 ???
