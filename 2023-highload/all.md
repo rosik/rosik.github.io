@@ -269,7 +269,7 @@ background-image: url(template/bg-section.svg)
 - i8 отдает сообщение i2
 <!-- ############################################################ -->
 ---
-# i8: «😥»
+# i8: «<img style="vertical-align: -5px; width: 50px" src="template/crying-face.png">»
 .center[![:scale 1050px](images/multiframe-3.svg#frame3)]
 .timer[![:scale 50px](template/hourglass.png)]
 ???
