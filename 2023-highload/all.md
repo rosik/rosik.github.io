@@ -147,7 +147,7 @@ background-image: url(template/bg-section.svg)
 ---
 # i1, начинайте выборы
 .center[![:scale 1050px](images/multiframe-1.svg#frame3)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 ???
 - Транспорт-агностик
 - В рафте это называется RPC
@@ -158,7 +158,7 @@ background-image: url(template/bg-section.svg)
 ---
 # i2-i8: «Ок»
 .center[![:scale 1050px](images/multiframe-1.svg#frame4)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 ???
 - Голосовать можно 1 раз за терм
 - Голосуем за первого встречного
@@ -186,19 +186,19 @@ background-image: url(template/bg-section.svg)
 ---
 # i1, заполняйте raft-журнал
 .center[![:scale 1050px](images/multiframe-2.svg#frame1)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 
 <!-- ############################################################ -->
 ---
 # i1: «Заперсистьте!»
 .center[![:scale 1050px](images/multiframe-2.svg#frame3)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 
 <!-- ############################################################ -->
 ---
 # i2-i8: «Ок»
 .center[![:scale 1050px](images/multiframe-2.svg#frame4)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 ???
 - Сначала персистим, потом отвечаем на запрос
 
@@ -215,13 +215,13 @@ background-image: url(template/bg-section.svg)
 <!-- ############################################################ -->
 ---
 # i1: «Реплицируйтесь!»
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 .center[![:scale 1050px](images/multiframe-2.svg#frame6)]
 
 <!-- ############################################################ -->
 ---
 # i2, i3, сохраняйте записи
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 .center[![:scale 1050px](images/multiframe-2.svg#frame7)]
 
 
@@ -258,20 +258,20 @@ background-image: url(template/bg-section.svg)
 ---
 # i8, начинайте выборы
 .center[![:scale 1050px](images/multiframe-3.svg#frame1)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 
 <!-- ############################################################ -->
 ---
 # i2, i3: «Не-а»
 .center[![:scale 1050px](images/multiframe-3.svg#frame2)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 ???
 - i8 отдает сообщение i2
 <!-- ############################################################ -->
 ---
 # i8: «😥»
 .center[![:scale 1050px](images/multiframe-3.svg#frame3)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 ???
 - Чтобы такое происходило не слишком часто, raft рандомизирует тайм-аут в
   некотором диапазоне, в етцд `[t, 2t)`.
@@ -299,7 +299,7 @@ background-image: url(template/bg-section.svg)
 ---
 # i4, начинайте выборы
 .center[![:scale 1050px](images/multiframe-3.svg#frame4)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 ???
 - Терм t2 пропускаем
 - Зачем? — Ради экономии времени
@@ -308,13 +308,13 @@ background-image: url(template/bg-section.svg)
 ---
 # Вжух, и i4 — лидер
 .center[![:scale 1050px](images/multiframe-3.svg#frame5)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 
 <!-- ############################################################ -->
 ---
 # i4, заполняйте raft-журнал
 .center[![:scale 1050px](images/multiframe-4.svg#frame1)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 ???
 - Любопытно: i4 до сих пор не знает коммит
 
@@ -322,13 +322,13 @@ background-image: url(template/bg-section.svg)
 ---
 # i5-i8, обработайте запрос
 .center[![:scale 1050px](images/multiframe-4.svg#frame2)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 
 <!-- ############################################################ -->
 ---
 # i1, возвращайтесь онлайн
 .center[![:scale 1050px](images/multiframe-4.svg#frame3)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 ???
 - i8, передайте листочки i1
 
@@ -336,7 +336,7 @@ background-image: url(template/bg-section.svg)
 ---
 # i4 получает ответ
 .center[![:scale 1050px](images/multiframe-4.svg#frame4)]
-.timer[⏱]
+.timer[![:scale 50px](template/hourglass.png)]
 ???
 - Конец
 
