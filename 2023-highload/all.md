@@ -1,6 +1,4 @@
 class: titlepage
-background-size: contain
-background-image: url(template/bg-title-left.svg)
 
 # Как при помощи бумаги, карандаша<br/> и алгоритма Raft достичь консенсуса
 ## Ярослав Дынников
@@ -74,8 +72,6 @@ background-image: url(template/bg-title-left.svg)
 ---
 class: sectionpage
 count: false
-background-size: contain
-background-image: url(template/bg-section.svg)
 # Raft
 ???
 - Наверняка всем не терпится начать, но сначала сейчас будет лекция на
@@ -134,8 +130,6 @@ background-image: url(template/bg-section.svg)
 ---
 class: sectionpage
 count: false
-background-size: contain
-background-image: url(template/bg-section.svg)
 # Выборы лидера
 ## Игра 1
 ???
@@ -178,8 +172,6 @@ background-image: url(template/bg-section.svg)
 ---
 class: sectionpage
 count: false
-background-size: contain
-background-image: url(template/bg-section.svg)
 # Репликация журнала
 ## Игра 2
 ???
@@ -241,8 +233,6 @@ background-image: url(template/bg-section.svg)
 ---
 class: sectionpage
 count: false
-background-size: contain
-background-image: url(template/bg-section.svg)
 # Терм без лидера
 ## Игра 3
 ???
@@ -285,8 +275,6 @@ background-image: url(template/bg-section.svg)
 ---
 class: sectionpage
 count: false
-background-size: contain
-background-image: url(template/bg-section.svg)
 # Перезапись журнала
 ## Игра 4
 ???
@@ -358,8 +346,6 @@ background-image: url(template/bg-section.svg)
 <!-- ############################################################ -->
 ---
 class: finalpage
-background-size: contain
-background-image: url(template/bg-final.svg)
 
 # Материалы
 
