@@ -34,15 +34,24 @@ background-image: url(template/bg-face.svg)
 # Picodata — это
 - Distributed SQL
 ???
-- С точки зрения пользователя мы - достаточно обычная база данных
+- С точки зрения пользователя мы — достаточно обычная база данных
 - У нас есть SQL — `select * from`, `join`, и вот это все
-- Под капотом спрятано шардирование и репликация,
-- а пользователь взаимодействует с кластером как с единым ресурсом
+- Но SQL не обычный, а распределенный
 
 <!-- ############################################################ -->
 ---
 # Picodata — это
 - Distributed SQL
+- Sharding, replication
+???
+- Пользователь взаимодействует с кластером как с единым ресурсом,
+- а под капотом спрятано шардирование и репликация
+
+<!-- ############################################################ -->
+---
+# Picodata — это
+- Distributed SQL
+- Sharding, replication
 - In-memory
 ???
 - Отличительных особенностей у нас есть две
@@ -56,6 +65,7 @@ background-image: url(template/bg-face.svg)
 ---
 # Picodata — это
 - Distributed SQL
+- Sharding, replication
 - In-memory, single-threaded
 ???
 - Вторая особенность состоит в том, что
@@ -67,8 +77,9 @@ background-image: url(template/bg-face.svg)
 ---
 # Picodata — это
 - Distributed SQL
-- In-memory, single-threaded
 - Sharding, replication
+- In-memory, single-threaded
+- Горизонтальное масштабирование
 ???
 - Масштабируемся мы исключительно горизонтальным образом
 - И даже если речь идет о современных многоядерных системах,
