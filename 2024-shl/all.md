@@ -197,6 +197,74 @@ In-memory СУБД и сервер приложений на Lua
 # Иерархия
 .center[![:scale 1050px](images/pyramid.svg)]
 
+<!-- ############################################################ -->
+---
+# Описание структуры
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;float:left;margin-right:60px}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-size:20pt;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-size:20pt;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-l{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-lb{font-weight:bold;text-align:left;vertical-align:top}
+</style>
+
+<table class="tg">
+  <thead>
+  <tr> <th class="tg-c" colspan="2">INSTANCE</th> </tr>
+  </thead>
+<tbody>
+  <tr> <td></td>                <td class="tg-l">raft_id</td></tr>
+  <tr> <td class="tg-l">PK</td> <td class="tg-l">instance_id</td> </tr>
+  <tr> <td class="tg-l">FK</td> <td class="tg-l">replicaset_id</td> </tr>
+  <tr> <td></td>                <td class="tg-lb">current_state</td> </tr>
+  <tr> <td></td>                <td class="tg-lb">target_state</td> </tr>
+</tbody>
+</table>
+.footnote[
+Важно: не status, а state!<br>
+State: Online ⇆ Offline; `incarnation`<br>
+]
+
+--
+<table class="tg" style="">
+  <thead>
+  <tr> <th class="tg-c" colspan="2">REPLICASET</th> </tr>
+  </thead>
+<tbody>
+  <tr> <td class="tg-l">PK</td> <td class="tg-l">replicaset_id</td> </tr>
+  <tr> <td class="tg-l">FK</td> <td class="tg-l">tier</td> </tr>
+  <tr> <td></td>                <td class="tg-lb">current_master</td> </tr>
+  <tr> <td></td>                <td class="tg-lb">target_master</td> </tr>
+</tbody>
+</table>
+--
+<table class="tg" style="">
+  <thead>
+  <tr> <th class="tg-c" colspan="2">TIER</th> </tr>
+  </thead>
+<tbody>
+  <tr> <td class="tg-l">PK</td> <td class="tg-l">tier</td> </tr>
+  <tr> <td></td>                <td class="tg-l">replication_factor</td> </tr>
+  <tr> <td></td>                <td class="tg-l">can_vote</td> </tr>
+</tbody>
+</table>
+
+<!-- ############################################################ -->
+---
+# Единая схема данных
+```rust
+pub enum Op {
+    Nop,
+    Dml(Dml),
+    DdlPrepare { schema_version: u64, ddl: Ddl },
+    DdlCommit,
+    DdlAbort,
+    Acl(Acl),
+}
+```
 
 <!-- ############################################################ -->
 ---
