@@ -271,7 +271,7 @@ State: Online ⇆ Offline; `n`<br>
 ---
 # Кластер из N инстансов
 --
-- M из них *can_vote*
+- часть из них *can_vote*
 --
 - 5 из них *voters*, все остальные *learners*
 --
