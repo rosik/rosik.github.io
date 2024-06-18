@@ -290,7 +290,23 @@ State: Online ⇆ Offline; `n`<br>
 <!-- ############################################################ -->
 ---
 # Распределенный SQL
+<div style="float:left;width:30%;line-height:1.3"><p>
+INNER JOIN<br>
+LEFT OUTER JOIN<br>
+WHERE<br>
+WHERE ... IN<br>
+GROUP BY<br>
+HAVING<br>
+ORDER BY<br>
+UNION ALL<br>
+DISTINCT<br>
+EXCEPT DISTINCT<br>
+</p></div>
+<img src="images/ebnf-select.svg" style="width:730px;float:right;">
+.footnote[https://docs.picodata.io/picodata/stable/sql_index/]
 
+---
+# Распределенный SQL
 - Картинка роутер / сторадж
 - Картинка AST
 - Картинка IR
@@ -308,7 +324,7 @@ State: Online ⇆ Offline; `n`<br>
 <p>Распределенный SQL<p\>
 ???
 - Ни одной новой идеи, но комбинация уникальна
-
+- Например, точечные запросы по предагрегированным витринам данных
 <!-- ############################################################ -->
 ---
 class: finalpage
