@@ -311,11 +311,14 @@ EXCEPT DISTINCT<br>
 <img src="images/ebnf-select.svg" style="width:730px;float:right;">
 .footnote[https://docs.picodata.io/picodata/24.4/sql_index/]
 
+<!-- ############################################################ -->
 ---
-# Распределенный SQL
-- Картинка роутер / сторадж
-- Картинка AST
-- Картинка IR
+# Обработка запроса
+```sql
+SELECT W_ID, W_NAME FROM WAREHOUSE
+```
+.center[<img src="images/ast.svg" style="width:600px;">]
+
 
 <!-- ############################################################ -->
 ---
