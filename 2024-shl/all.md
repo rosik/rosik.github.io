@@ -98,7 +98,7 @@ background-image: url(template/bg-face.svg)
 ---
 <br><br><br><br><br>
 .center[
-![:scale 360px](../images/logo-picodata-full.svg)
+![:scale 360px](images/logo-picodata-full.svg)
 <!-- # Picodata — -->
 <p>Маленькие, быстрые данные</p>
 ]
