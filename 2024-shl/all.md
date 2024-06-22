@@ -301,11 +301,19 @@ background-image: url(template/bg-section.svg)
 <!-- ############################################################ -->
 ---
 # Cluster manager
-.center[![:scale 1050px](images/multiframe-2.svg#frame1)]
+.center[![:scale 1050px](images/cluster-manager.svg#frame4)]
 
 ---
 # Cluster manager
-.center[![:scale 1050px](images/multiframe-2.svg#frame2)]
+.center[![:scale 1050px](images/cluster-manager.svg#frame1)]
+
+---
+# Cluster manager
+.center[![:scale 1050px](images/cluster-manager.svg#frame2)]
+
+---
+# Cluster manager
+.center[![:scale 1050px](images/cluster-manager.svg#frame3)]
 
 <!-- ############################################################ -->
 ---
