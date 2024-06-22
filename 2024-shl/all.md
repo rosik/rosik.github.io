@@ -347,11 +347,11 @@ background-image: url(template/bg-section.svg)
 </tbody>
 </table>
 .footnote[
+State: Online ⇆ Offline; generation<br>
 Важно: не status, а state!<br>
-State: Online ⇆ Offline; `generation`<br>
 ]
 
---
+<!--
 <table class="tg" style="">
   <thead>
   <tr> <th class="tg-c" colspan="2">REPLICASET</th> </tr>
@@ -363,17 +363,7 @@ State: Online ⇆ Offline; `generation`<br>
   <tr> <td></td>                <td class="tg-lb">target_master</td> </tr>
 </tbody>
 </table>
---
-<table class="tg" style="">
-  <thead>
-  <tr> <th class="tg-c" colspan="2">TIER</th> </tr>
-  </thead>
-<tbody>
-  <tr> <td class="tg-l">PK</td> <td class="tg-l">tier</td> </tr>
-  <tr> <td></td>                <td class="tg-l">replication_factor</td> </tr>
-  <tr> <td></td>                <td class="tg-l">can_vote</td> </tr>
-</tbody>
-</table>
+-->
 
 <!-- ############################################################ -->
 ---
@@ -389,22 +379,26 @@ State: Online ⇆ Offline; `generation`<br>
 
 <!-- ############################################################ -->
 ---
-# Кластер из N инстансов
---
-- часть из них *can_vote*
---
-- 5 из них *voters*, все остальные *learners*
---
-- 1 из них *Leader*, все остальные *Follower*
+# Отказоустойчивость
+- Сотни инстансов в кластере
+- 5 из них *voters*, остальные *learners*
+- 1 из них *Leader*, остальные *Follower*
+???
+- А вот послушайте с какой инженерной задачкой нам пришлось столкнуться
+
+<!-- ############################################################ -->
+---
+class: sectionpage
+count: false
+background-size: contain
+background-image: url(template/bg-section.svg)
+# Работа с данными
 
 <!-- ############################################################ -->
 ---
 # Хранение данных
---
 - Таблицы бывают *шардированные* и *глобальные*
---
 - Схема данных единая на весь кластер
---
 - Доступ к данным посредством языка SQL
 
 <!-- ############################################################ -->
