@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   sodipodi:docname="multiframe-3.svg"
+   sodipodi:docname="sql-pipeline.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,15 +24,15 @@
      inkscape:document-units="px"
      showgrid="false"
      units="px"
-     inkscape:zoom="0.94762593"
-     inkscape:cx="454.82082"
-     inkscape:cy="161.98375"
+     inkscape:zoom="0.82376416"
+     inkscape:cx="542.63103"
+     inkscape:cy="225.18581"
      inkscape:window-width="1850"
      inkscape:window-height="1016"
      inkscape:window-x="70"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g9665-7-3-22"
+     inkscape:current-layer="layer1"
      borderlayer="true"
      showborder="true"
      inkscape:showpageshadow="true"
@@ -403,32 +403,9 @@
      id="layer1"
      style="display:inline">
     <g
-       id="g9665"
-       transform="translate(-13.241049,-119.79522)">
-      <rect
-         style="fill:none;stroke:#000000;stroke-width:2;stop-color:#000000"
-         id="rect1247"
-         width="143.53905"
-         height="80.586365"
-         x="122.19412"
-         y="168.03239"
-         rx="15"
-         ry="15" />
-      <text
-         xml:space="preserve"
-         style="font-size:42.6667px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:Montserrat;text-align:center;text-anchor:middle"
-         x="193.15295"
-         y="220.42159"
-         id="text2476"><tspan
-           sodipodi:role="line"
-           id="tspan2474"
-           x="193.15295"
-           y="220.42159">SQL</tspan></text>
-    </g>
-    <g
        id="g9665-7"
        style="display:inline"
-       transform="translate(288.62461,-118.21261)">
+       transform="translate(828.56821,421.37999)">
       <rect
          style="fill:none;stroke:#000000;stroke-width:2;stop-color:#000000"
          id="rect1247-5"
@@ -448,30 +425,6 @@
            x="193.15295"
            y="220.42159"
            id="tspan19702">IR subtree</tspan></text>
-    </g>
-    <g
-       id="g9665-7-3"
-       style="display:inline"
-       transform="translate(161.66183,396.23319)">
-      <rect
-         style="fill:none;stroke:#000000;stroke-width:2;stop-color:#000000"
-         id="rect1247-5-6"
-         width="240"
-         height="80"
-         x="74.603661"
-         y="164.69891"
-         rx="15"
-         ry="15" />
-      <text
-         xml:space="preserve"
-         style="font-size:42.6667px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:Montserrat;text-align:center;text-anchor:middle"
-         x="193.15295"
-         y="220.42159"
-         id="text2476-3-0"><tspan
-           sodipodi:role="line"
-           x="193.15295"
-           y="220.42159"
-           id="tspan19702-6">IR subtree</tspan></text>
     </g>
     <g
        id="g9665-7-3-22"
@@ -500,7 +453,7 @@
     <g
        id="g9665-7-3-23"
        style="display:inline"
-       transform="translate(659.56839,37.375517)">
+       transform="translate(1151.6095,717.58998)">
       <rect
          style="fill:none;stroke:#000000;stroke-width:2;stop-color:#000000"
          id="rect1247-5-6-7"
@@ -524,7 +477,7 @@
     <g
        id="g9665-7-3-2"
        style="display:inline"
-       transform="translate(288.62461,-36.21261)">
+       transform="translate(828.56821,503.37999)">
       <rect
          style="fill:none;stroke:#000000;stroke-width:2;stop-color:#000000"
          id="rect1247-5-6-6"
@@ -546,56 +499,108 @@
            id="tspan19702-6-8">local SQL</tspan></text>
     </g>
     <g
-       id="g21841"
-       transform="translate(-13.241049,45.37751)">
-      <rect
-         style="fill:none;stroke:#000000;stroke-width:2;stop-color:#000000"
-         id="rect1247-2"
-         width="143.53905"
-         height="80.586365"
-         x="122.19412"
-         y="168.03239"
-         rx="15"
-         ry="15" />
-      <text
-         xml:space="preserve"
-         style="font-size:42.6667px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:Montserrat;text-align:center;text-anchor:middle"
-         x="193.15295"
-         y="220.42159"
-         id="text2476-9"><tspan
-           sodipodi:role="line"
-           id="tspan2474-1"
-           x="193.15295"
-           y="220.42159">IR</tspan></text>
-    </g>
-    <g
-       id="g9665-2"
-       style="display:inline"
-       transform="translate(-13.241049,-37.208855)">
-      <rect
-         style="fill:none;stroke:#000000;stroke-width:2;stop-color:#000000"
-         id="rect1247-7"
-         width="143.53905"
-         height="80.586365"
-         x="122.19412"
-         y="168.03239"
-         rx="15"
-         ry="15" />
-      <text
-         xml:space="preserve"
-         style="font-size:42.6667px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:Montserrat;text-align:center;text-anchor:middle"
-         x="193.15295"
-         y="220.42159"
-         id="text2476-0"><tspan
-           sodipodi:role="line"
-           id="tspan2474-9"
-           x="193.15295"
-           y="220.42159">AST</tspan></text>
+       id="g16935"
+       transform="translate(64,96.421812)">
+      <g
+         id="g9665"
+         transform="translate(-41.194122,-162.03239)">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:2;stop-color:#000000"
+           id="rect1247"
+           width="140"
+           height="60"
+           x="122.19412"
+           y="168.03239"
+           rx="15"
+           ry="15" />
+        <text
+           xml:space="preserve"
+           style="font-size:32px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:Montserrat;text-align:center;text-anchor:middle"
+           x="191.58611"
+           y="207.1044"
+           id="text2476"><tspan
+             sodipodi:role="line"
+             id="tspan2474"
+             x="191.58611"
+             y="207.1044"
+             style="font-size:32px">SQL</tspan></text>
+      </g>
+      <g
+         id="g9665-7-3"
+         style="display:inline"
+         transform="translate(566.39634,-158.69891)">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:2;stop-color:#000000"
+           id="rect1247-5-6"
+           width="200"
+           height="60"
+           x="74.603661"
+           y="164.69891"
+           rx="15"
+           ry="15" />
+        <text
+           xml:space="preserve"
+           style="font-size:32px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:Montserrat;text-align:center;text-anchor:middle"
+           x="173.51562"
+           y="206.49092"
+           id="text2476-3-0"><tspan
+             sodipodi:role="line"
+             x="173.51562"
+             y="206.49092"
+             id="tspan19702-6">IR subtree</tspan></text>
+      </g>
+      <g
+         id="g21841"
+         transform="translate(318.80588,-162.03239)">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:2;stop-color:#000000"
+           id="rect1247-2"
+           width="160"
+           height="60"
+           x="122.19412"
+           y="168.03239"
+           rx="15"
+           ry="15" />
+        <text
+           xml:space="preserve"
+           style="font-size:32px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:Montserrat;text-align:center;text-anchor:middle"
+           x="202.0341"
+           y="206.8004"
+           id="text2476-9"><tspan
+             sodipodi:role="line"
+             id="tspan2474-1"
+             x="202.0341"
+             y="206.8004">Plan (IR)</tspan></text>
+      </g>
+      <g
+         id="g9665-2"
+         style="display:inline"
+         transform="translate(138.80588,-163.03239)">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:2;stop-color:#000000"
+           id="rect1247-7"
+           width="140"
+           height="60"
+           x="122.19412"
+           y="168.03239"
+           rx="15"
+           ry="15" />
+        <text
+           xml:space="preserve"
+           style="font-size:32px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:Montserrat;text-align:center;text-anchor:middle"
+           x="192.22612"
+           y="209.23239"
+           id="text2476-0"><tspan
+             sodipodi:role="line"
+             id="tspan2474-9"
+             x="192.22612"
+             y="209.23239">AST</tspan></text>
+      </g>
     </g>
     <g
        id="g9665-7-3-7"
        style="display:inline"
-       transform="translate(288.62461,45.78739)">
+       transform="translate(828.56821,585.37999)">
       <rect
          style="fill:none;stroke:#000000;stroke-width:2;stop-color:#000000"
          id="rect1247-5-6-9"
@@ -615,6 +620,30 @@
            x="193.15295"
            y="220.42159"
            id="tspan19702-6-0">VDBE ops</tspan></text>
+    </g>
+    <g
+       id="g9665-7-3-3"
+       style="display:inline"
+       transform="translate(78.50798,91.65181)">
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:2;stop-color:#000000"
+         id="rect1247-5-6-67"
+         width="200"
+         height="60"
+         x="74.603661"
+         y="164.69891"
+         rx="15"
+         ry="15" />
+      <text
+         xml:space="preserve"
+         style="font-size:32px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:Montserrat;text-align:center;text-anchor:middle"
+         x="173.51562"
+         y="206.49092"
+         id="text2476-3-0-53"><tspan
+           sodipodi:role="line"
+           x="173.51562"
+           y="206.49092"
+           id="tspan19702-6-5">IR subtree</tspan></text>
     </g>
   </g>
 </svg>

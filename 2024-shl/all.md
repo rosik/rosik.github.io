@@ -21,14 +21,11 @@ background-image: url(template/bg-face.svg)
 ???
 - План доклада такой
 - Я сначала запитчу наш продукт
-- Потом обрисую на верхнем уровне архитектуру
-- Расскажу про применяемые алгоритмы
-- И из этого мы сможем сделать выводы о конкурентных отличиях пикодаты
-  от других вендоров
-- А если этого вам покажется мало, в заключение я расскажу как мы
-  планируем _дополнительно_ расширять функциональность при помощи плагинов
-  на Rust
-- Ну а пока поехали
+- Потом я расскажу про архитектуру и применяемые алгоритмы
+- Мы подробно рассмотрим две ключевые темы
+- Управление кластером
+- И распределенный SQL
+- Но обо всем по-порядку, а пока поехали
 
 <!-- ############################################################ -->
 ---
@@ -269,8 +266,7 @@ class: sectionpage
 count: false
 background-size: contain
 background-image: url(template/bg-section.svg)
-# Архитектура
-## и алгоритмы
+# Управление кластером
 
 <!-- ############################################################ -->
 ---
@@ -308,7 +304,7 @@ background-image: url(template/bg-section.svg)
 <!-- ############################################################ -->
 ---
 # Cluster manager
-.center[![:scale 1050px](images/cluster-manager.svg#frame4)]
+.center[![:scale 1050px](images/cluster-manager-2.svg#frame1)]
 ???
 - Ну а мы продолжаем нашу экскурсию
 - Взгляните на эту схему
@@ -319,17 +315,17 @@ background-image: url(template/bg-section.svg)
 
 ---
 # Cluster manager
-.center[![:scale 1050px](images/cluster-manager.svg#frame1)]
+.center[![:scale 1050px](images/cluster-manager-2.svg#frame2)]
 ???
 - Каждый инстанс представляет из себя отдельный инстанс тарантула
 
 ---
 # Cluster manager
-.center[![:scale 1050px](images/cluster-manager.svg#frame2)]
+.center[![:scale 1050px](images/cluster-manager-2.svg#frame3)]
 
 ---
 # Cluster manager
-.center[![:scale 1050px](images/cluster-manager.svg#frame3)]
+.center[![:scale 1050px](images/cluster-manager-2.svg#frame4)]
 ???
 - Если с этим все понятно, то я верну одну опущенную деталь
 
@@ -464,10 +460,8 @@ EXCEPT DISTINCT<br>
 
 <!-- ############################################################ -->
 ---
-# Обработка запроса: AST
-```sql
-SELECT b FROM t WHERE a = 1
-```
+# AST
+<br>
 .center[<img src="images/sql-ast-1.png" style="width:600px;">]
 ???
 - За отправную точку возмем достаточно незамысловатый запрос
@@ -476,25 +470,49 @@ SELECT b FROM t WHERE a = 1
 - Первым этапом выполняется синтаксический разбор результатом которого
   становится abstract syntax tree такого вот вида
 
-<!-- ############################################################ -->
 ---
-# Обработка запроса: Plan (IR)
-```sql
-SELECT b FROM t WHERE a = 1
-```
+# План запроса
+IR == intermediate representation == plan
+.footnote[SELECT b FROM t WHERE a = 1]
 .center[<img src="images/sql-ir-1.png" style="width:750px;">]
 
+---
+# План запроса
+IR == intermediate representation == plan
+.footnote[SELECT b FROM t WHERE a = 1]
+.center[<img src="images/sql-ir-2.png" style="width:750px;">]
+
+---
+# Обработка запроса
+
+<img src="images/sql-ir-7.png" style="width:350px;float:right;">
+## Router
+SQL → AST → IR → execute
+## Executor
+IR subtree → bucket discovery → <br>
+→ map → VDBE ops → reduce
+
+---
+# Bucket discovery
+<br>
+.footnote[SELECT b FROM t WHERE a = 1]
+.center[<img src="images/sql-ir-3.png" style="width:750px;">]
+
+---
+# IR → VDBE
+<br>
+.footnote[SELECT b FROM t WHERE a = 1]
+.center[<img src="images/sql-ir-4.png" style="width:750px;">]
 
 <!-- ############################################################ -->
 ---
 # Итого
-<p>Историческая справка, Tarantool<p\>
+<p>История Tarantool<p\>
 <p>Алгоритм Raft<p\>
 <p>Иерархия — инстансы, репликасеты, тиры, кластер<p\>
 <p>Не status, а state<p\>
 <p>Лидер, фолловер, кандидат<p\>
 <p>Динамическое переключение голосующих узлов<p\>
-<p>Единая схема данных<p\>
 <p>Распределенный SQL<p\>
 ???
 - Ни одной новой идеи, но комбинация уникальна
