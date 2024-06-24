@@ -544,6 +544,7 @@ SQL → AST → IR → _execute_
 <br>
 .footnote[SELECT b FROM t WHERE a = 1]
 .center[<img src="images/sql-ir-4.png" style="width:750px;">]
+???
 - Теперь мы знаем где искать данные и можно отправлять запрос на сторадж
 - Тут уже в игру вступает тарантульный локальный sql
 - Наш IRчик преобразуется в набор vdbe инструкций, тарантул их
