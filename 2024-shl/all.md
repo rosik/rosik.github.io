@@ -320,6 +320,7 @@ background-image: url(template/bg-section.svg)
 ---
 # Cluster manager
 .center[![:scale 1050px](images/cluster-manager-2.svg#frame3)]
+???
 - И вот тут маленький взрыв мозга обычно происходит, смотрите
 - У нас есть два уровня репликации. Внутри репликасета и на весь кластер
 
